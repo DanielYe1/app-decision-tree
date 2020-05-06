@@ -42,4 +42,7 @@ public class DecisionTreeService {
         return repository.insert(tree);
     }
 
+    public Boolean delete(String name){
+        return repository.deleteByName(name);
+    }
 }

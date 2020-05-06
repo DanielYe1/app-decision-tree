@@ -27,10 +27,19 @@ public class DecisionTreeController {
         }
     }
 
-    @RequestMapping(value = "/tree",    method = RequestMethod.POST)
+    @RequestMapping(value = "/tree", method = RequestMethod.POST)
     public ResponseEntity add(@RequestBody DecisionTree decisionTree) {
         DecisionTree added = service.add(decisionTree);
         return new ResponseEntity(decisionTree, HttpStatus.CREATED);
+    }
+
+    @RequestMapping(value = "/tree/{name}", method = RequestMethod.DELETE)
+    public ResponseEntity getNextAnswer(@PathVariable(value = "name") String name) {
+        if (service.delete(name)) {
+            return new ResponseEntity(HttpStatus.NO_CONTENT);
+        } else {
+            return new ResponseEntity(HttpStatus.NOT_FOUND);
+        }
     }
 
 }

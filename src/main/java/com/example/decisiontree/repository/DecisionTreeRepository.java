@@ -9,4 +9,6 @@ import java.util.Optional;
 @Repository
 public interface DecisionTreeRepository extends MongoRepository<DecisionTree, String> {
     Optional<DecisionTree> findByName(String name);
+
+    Boolean deleteByName(String name);
 }
