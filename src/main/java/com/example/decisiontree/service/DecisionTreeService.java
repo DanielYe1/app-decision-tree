@@ -28,7 +28,7 @@ public class DecisionTreeService {
 
             String nextId = rules.stream().filter(r ->
                     r.getQuestionId().equals(answer.getQuestionId()))
-                    .filter(r -> r.getValueEquals().equals(answer.getAnswers()))
+                    .filter(r -> r.getValueEquals().containsAll(answer.getAnswers()))
                     .findFirst()
                     .get()
                     .getGoesTo();

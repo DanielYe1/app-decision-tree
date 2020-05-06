@@ -17,7 +17,7 @@ public class DecisionTreeController {
     @Autowired
     DecisionTreeService service;
 
-    @RequestMapping(value = "/node" ,method = RequestMethod.POST)
+    @RequestMapping(value = "/node", method = RequestMethod.POST)
     public ResponseEntity getNextAnswer(@RequestBody Answer answer) {
         Optional<Node> nextNode = service.getNextNode(answer);
         if (nextNode.isPresent()) {
@@ -27,7 +27,7 @@ public class DecisionTreeController {
         }
     }
 
-    @RequestMapping(method = RequestMethod.PUT)
+    @RequestMapping(value = "/tree",    method = RequestMethod.POST)
     public ResponseEntity add(@RequestBody DecisionTree decisionTree) {
         DecisionTree added = service.add(decisionTree);
         return new ResponseEntity(decisionTree, HttpStatus.CREATED);
