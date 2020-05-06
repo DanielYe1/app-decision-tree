@@ -8,6 +8,8 @@ import java.util.List;
 
 @Document(collection = "decisionTree")
 public class DecisionTree {
+    @Id
+    private String id;
     @Indexed(unique=true)
     private String name;
     private List<Node> nodes;
