@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.Optional;
 
 @RestController
+@CrossOrigin
 public class DecisionTreeController {
 
     @Autowired
@@ -34,7 +35,7 @@ public class DecisionTreeController {
     }
 
     @RequestMapping(value = "/tree/{name}", method = RequestMethod.DELETE)
-    public ResponseEntity getNextAnswer(@PathVariable(value = "name") String name) {
+    public ResponseEntity deleteTree(@PathVariable("name") String name) {
         if (service.delete(name)) {
             return new ResponseEntity(HttpStatus.NO_CONTENT);
         } else {

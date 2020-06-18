@@ -8,6 +8,16 @@ public class Node {
     private String text;
     private List<String> possibleValues;
 
+    public Node(String id, String type, String text, List<String> possibleValues) {
+        this.id = id;
+        this.type = type;
+        this.text = text;
+        this.possibleValues = possibleValues;
+    }
+
+    public Node() {
+    }
+
     public String getId() {
         return id;
     }

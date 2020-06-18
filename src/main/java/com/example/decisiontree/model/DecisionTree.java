@@ -15,6 +15,15 @@ public class DecisionTree {
     private List<Node> nodes;
     private List<Rule> rules;
 
+    public DecisionTree(String name, List<Node> nodes, List<Rule> rules) {
+        this.name = name;
+        this.nodes = nodes;
+        this.rules = rules;
+    }
+
+    public DecisionTree() {
+    }
+
     public String getName() {
         return name;
     }

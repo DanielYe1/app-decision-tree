@@ -10,5 +10,5 @@ import java.util.Optional;
 public interface DecisionTreeRepository extends MongoRepository<DecisionTree, String> {
     Optional<DecisionTree> findByName(String name);
 
-    Boolean deleteByName(String name);
+    Long deleteByName(String name);
 }

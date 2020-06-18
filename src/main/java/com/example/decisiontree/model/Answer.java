@@ -7,6 +7,15 @@ public class Answer {
     private String questionId;
     private List<String> answers;
 
+    public Answer(String treeName, String questionId, List<String> answers) {
+        this.treeName = treeName;
+        this.questionId = questionId;
+        this.answers = answers;
+    }
+
+    public Answer() {
+    }
+
     public String getTreeName() {
         return treeName;
     }
