@@ -23,16 +23,7 @@ public class DecisionTreeService {
         if (tree.isPresent()) {
             DecisionTree decisionTree = tree.get();
 
-            List<Rule> rules = decisionTree.getRules();
-
-            String nextId = rules.stream().filter(r ->
-                    r.getQuestionId().equals(answer.getQuestionId()))
-                    .filter(r -> r.getValueEquals().containsAll(answer.getAnswers()))
-                    .findFirst()
-                    .get()
-                    .getGoesTo();
-
-            return decisionTree.getNodes().stream().filter(n -> n.getId().equals(nextId)).findFirst();
+            return decisionTree.getNextNode(answer.getQuestionId(), answer.getAnswers());
         }
         return Optional.empty();
     }
